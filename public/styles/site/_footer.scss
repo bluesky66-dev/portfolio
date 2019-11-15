@@ -1,0 +1,143 @@
+// MIXINS
+
+// Center Mixin
+@mixin centerer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin middler {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+// Transition Mixin
+@mixin transition-main{
+    transition: ease all .3s;
+    -webkit-transition: ease all .3s;
+    -o-transition: ease all .3s;
+    -moz-transition: ease all .3s;
+}
+
+@mixin transition-sec{
+    transition: ease all .6s;
+    -webkit-transition: ease all .6s;
+    -o-transition: ease all .6s;
+    -moz-transition: ease all .6s;
+}
+
+// clear-fix mixin
+@mixin cf {
+  &::before,
+  &::after {
+    content: '';
+    display: table;
+  }
+  &::after {
+    clear: both;
+  }
+}
+
+// VARIABLES
+
+$font-head:"futura-pt",sans-serif;
+$font-subhead:"futura-pt",sans-serif;
+$font-body:"futura-pt",sans-serif;
+$primary-color:;
+$secondary-color:;
+$white: #fff;
+$black: #000;
+
+
+// FOOTER STYLES
+
+
+.footer.invisible {
+  opacity:0;
+}
+
+.footer-wrapper {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  z-index: -1;
+  will-change: opacity;
+}
+.footer {
+  opacity:1;
+	background-color: #37383c;
+  bottom:0;
+  color:#ccc;
+  h1 {
+    margin:0;
+    font-size:2em;
+    padding-bottom: 20px;
+  }
+}
+#footer {
+	border:none !important;
+	margin-top:0 !important;
+  padding-bottom: 80px;
+  padding-top:80px !important;
+  line-height:1;
+  .contact-list, .social-list{
+    font-size:12px;
+    font-family:$font-body;
+    list-style:none;
+    padding-left:0;
+    a{
+      @include transition-main;
+      color:#ccc;
+      &:hover{
+        @include transition-main;
+        color:#fff;
+      }
+    }
+  }
+  .foot-col {
+    padding-top:1em;
+  }
+  h5 {
+    display:inline-block;
+    letter-spacing:1px;
+    font-size: 14px;
+    margin:0;
+    font-weight:300;
+  }
+  ul {
+    margin-top:20px;
+  }
+  ul li {
+    padding-bottom:15px;
+    h5 {
+      letter-spacing:0;
+      font-weight:400;
+    }
+    i {
+      width:20px;
+    }
+  }
+  .social-list li {
+    display:inline-block;
+    width:100px;
+  }
+}
+
+@media (max-width: 768px){
+  #footer {
+    padding-left:3em; padding-right:3em;
+    padding-bottom:40px;
+    h5 {
+      font-size:12px;
+    }
+  }
+}
+@media (max-width: 450px){
+  #footer {
+    padding-bottom:10px;
+  }
+}
+

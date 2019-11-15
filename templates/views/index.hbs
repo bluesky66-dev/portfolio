@@ -1,0 +1,146 @@
+{{!< default}}
+<div id="landingPage">
+	<div class="container-wrap">
+		<div class="outer-container home-cont">		
+			<nav class="navbar navbar-default">
+				<div class="container-fluid">
+					<ul class="index-nav">
+						<li class="nav-item"><a href="/services">services</a></li>
+						<li class="nav-item"><a href="/work">work</a></li>
+						<li><button type="button" id="contactHome" class="navbar-toggle collapsed" data-target="#contactForm" data-toggle="collapse" aria-expanded="false">contact</button></li>
+						<li class="nav-item" id="dh-target"><a href="/work/project/disappear-here">disappear here</a></li>
+					</ul>
+					<!-- Mobile Menu -->
+					<div class="navbar-header">
+						<button type="button" id="landingMobile" class="navbar-toggle collapsed landing-toggle" data-target="#landing-mobile-menu" aria-expanded="false">
+					        <span class="sr-only">Toggle navigation</span>
+					        <span class="icon-bar"></span>
+					        <span class="icon-bar"></span>
+					        <span class="icon-bar"></span>
+					    </button>
+					</div>
+				    <div class="collapse navbar-collapse" id="landing-mobile-menu">
+		    			<a class="navbar-brand navmenu-brand nav-item" href="/">
+							<svg class="sidechain-logo" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 500 350" width="30px" height="20px">
+								<path fill="#000" d="M435.5,41L480,8.8C472.5,6.6,464.6,6,456.5,6H91.8C45.8,6,8.5,43.3,8.5,89.3V229c0,36.5,24,67.3,56.7,78.7
+								l-44.4,32.4c0.4,0.1,1,0.1,1.4,0.2c7.5,2.2,15.4,3.6,23.5,3.6h363.6c46,0,83.4-37.3,83.4-83.4V120.8C492.7,83.8,468.8,52.1,435.5,41
+								z M410.9,245.4c0,9.3-7.5,16.8-16.8,16.8H131.5l43.1-31.4h-66.7c-9.7,0-17.7-8-17.7-17.7V104.4c0-10,8.2-18.2,18.2-18.2h260.7
+								l-43.3,31.4h1.7h66.7c9.2,0,16.7,7.5,16.7,16.7V245.4z"/>
+							</svg>
+				      		<h3>sidechain</h3>
+				      	</a>
+			      		<ul class="nav navbar-nav">
+				        	{{# each navLinks}}
+								<li class="menuItem nav-item" {{#ifeq ../section key}}class="active"{{else}}{{/ifeq}}>
+									<a href="{{ href }}"><h5>{{ label }}</h5></a>
+								</li>
+							{{/each}}
+								<li class="menuItem">
+									<button type="button" id="cToggle" class="contact navbar-toggle collapsed" data-target="#contactForm" aria-expanded="false">Contact</button>
+								</li>
+
+							<!--{{#if user}}
+								<li class="sign-out menuItem"><a href="/keystone/signout"><i class="fa fa-user-circle" aria-hidden="true"></i><h5></h5></a></li>
+							{{else}}
+								<li class="sign-in menuItem"><a href="/keystone/signin"><i class="fa fa-user-circle" aria-hidden="true"></i><h5></h5></a></li>
+							{{/if}}-->
+			      		</ul>
+			    	</div><!-- /.navbar-collapse -->  
+					<div class="collapse navbar-collapse" id="contactForm">	
+						<div class="col-sm-12 contact-form">
+							
+							<div class="container">
+								{{#if enquirySubmitted}}
+									<h3>Thanks for getting in touch. We'll get back to you as soon as we can.</h3>
+									<a href="/work" class="nav-item"><button class="enter-site-btn" type="submit" id="" data-title="Button">back</button></a>
+								{{else}}
+									<div class="row contact-row">
+										<div class="mobile-back-btn"><a id="closeButtonHome" type="button">&larr;</a></div>
+										<div class="col-xs-12 col-sm-6">
+											<h1>Say Hello</h1>
+											<ul class="contact-list">
+												<li>studio@sidechain.studio</li>
+												<li>Melbourne +61-410-932-327</li>
+												<li>Auckland +64-21-728-542</li>
+											</ul>
+										</div>
+										<div class="col-xs-12 col-sm-6">
+											<p>Collaboration begins with a conversation. Whether you’re interested in discussing a new project or simply wish to find out more about our services and what we can do for you, we are here to help. Send us a message below or call us at +61-410-932-327 </p>
+											<form method="post">
+												<input type="hidden" name="action" value="contact">
+												<div class="form-group {{#if validationErrors.name}}has-error{{/if}}">
+													<label>Name</label>
+													<input type="text" name="name.full"  class="form-control" value="{{formData.[name.full]}}">
+												</div>
+												<div class="form-group {{#if validationErrors.email}}has-error{{/if}}">
+													<label>Email</label>
+													<input type="email" name="email" class="form-control" value="{{formData.email}}">
+												</div>
+												<div class="form-group {{#if validationErrors.message}}has-error{{/if}} ">
+													<label>Message</label>
+													<textarea name="message" placeholder="" rows="3" class="form-control">{{formData.message}}</textarea>
+												</div>
+												<div class="form-actions">
+													<button class="enter-site-btn" type="submit" id="" data-title="Button">send</button>
+												</div>
+											</form>
+										</div>
+									</div>
+								{{/if}}
+							</div>
+				    	</div>
+			    	</div>
+
+		    	</div>
+			</nav>			
+			<div class="fullscreen-header" id="page-header-wrap">
+				<div class="fullscreen-header" id="page-header-bg">
+					<div class="bg-color-overlay">
+					</div>	
+					<div class="particle-container" id="canvasContainer">
+					</div>
+				</div>		
+			</div>
+			<div class="container-inner-wrap">
+				<div class="container main-content">
+					<div class="row desktop" id="heightRow">
+						<div id="welcome">
+							<div class="row-bg">
+							</div>
+							<div class="title-cont col-xs-12">
+								<div class="element-wrapper">
+									<p><a href="#" class="index-arrow"><span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></a></p>
+								</div>
+								<div class="copy-row">
+									<p class="aboutUs">Sidechain is a design and innovation studio experimenting with digital technology to create impactful experiences for forward-thinking businesses and artists.
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row mobile" id="heightRowMob">
+						<div id="welcome-mob">
+							<div class="row-bg">
+								
+							</div>
+							<div class="title-cont col-xs-12">
+								<div class="element-wrapper">
+									<p><a href="#" class="index-arrow"><span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></a></p>
+								</div>
+								<div class="copy-row">
+									<h1 class="sc-title" id="sc-title-mob">sidechain</h1>
+									<p class="aboutUs-mob">Sidechain is a design and innovation studio experimenting with digital technology to create impactful experiences for forward-thinking businesses and artists. 
+									</p>
+									<ul class="mobile-main-nav">
+										<li class="nav-item"><a href="/work">work</a></li>
+										<li class="nav-item"><a href="/services">services</a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

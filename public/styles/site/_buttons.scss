@@ -1,0 +1,161 @@
+// MIXINS
+
+// Center Mixin
+@mixin centererX {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+// Transition Mixin
+@mixin transition-main{
+  transition: ease all .3s;
+  -webkit-transition: ease all .3s;
+  -o-transition: ease all .3s;
+  -moz-transition: ease all .3s;
+}
+
+@mixin transition-full{
+  transition: ease all 1s;
+  -webkit-transition: ease all 1s;
+  -o-transition: ease all 1s;
+  -moz-transition: ease all 1s;
+}
+
+// clear-fix mixin
+@mixin cf {
+  &::before,
+  &::after {
+    content: '';
+    display: table;
+  }
+  &::after {
+    clear: both;
+  }
+}
+
+// VARIABLES 
+
+$font-head:"futura-pt",sans-serif;
+$font-subhead:"futura-pt",sans-serif;
+$font-body:"futura-pt",sans-serif;
+$primary-color:;
+$secondary-color:;
+$white: #fff;
+$black: #000;
+
+// BUTTONS
+
+.btn-wrap {
+  @include centererX;
+  bottom:10%;
+  z-index: 1010;
+}
+
+.menu-close {
+  min-width: 120px;
+  height: 40px;
+  font-family: $font-head, sans-serif;
+  font-size: 8px;
+  text-transform: uppercase;
+  letter-spacing:1px;
+  font-weight: 600;
+  color: #000;
+  background-color: #fff;
+  border: none;
+  border-radius: 45px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+}
+
+.enter-site-btn, .work-btn, .next-btn, .back-site-btn, .link-btn {
+  @extend .menu-close;
+}
+
+.work-btn{
+  visibility:hidden;
+  opacity: 0;
+}
+
+.enter-site-btn{
+  display:block;
+}
+
+.enter-site-btn.switch{
+  display:none;
+}
+
+.menu-close:hover, .enter-site-btn:hover, .work-btn:hover {
+  background-color:#2EE59D;
+  box-shadow:0px 15px 20px rgba(46, 229, 157, 0.4);
+  color:#fff;
+  transform:translateY(-7px);
+  font-weight:700;
+}
+
+
+// CLOSE CONTACT BUTTON 
+
+.closeBtn {
+  border: none;
+  background: transparent;
+  position: absolute;
+  right: 0;
+  top:-3em;
+  .glyphicon {
+    font-size: 1.4em;
+  }
+}
+
+// LINK BUTTON
+
+.link-btn {
+  min-width:160px;
+  letter-spacing:1px;
+}
+
+// BACK BUTTON 
+
+.back-btn {
+  display: block;
+  padding-top: 3px;
+  position: fixed;
+  left: 0;
+  top: 1.3em;
+  z-index: 10001;
+  width: 60px;
+  a {
+    color:#000;
+    font-size:1.5em; 
+  }
+}
+
+@media (max-width: 1270px){
+  .back-btn{
+    display:none;
+  }
+}
+
+// BACK TO TOP BUTTON
+
+#topBtn {
+  @include transition-main;
+  position: fixed;
+  bottom: -4em;
+  right: 1em;
+  z-index: 99;
+  border: none;
+  outline: none;
+  background-color: rgba(0,0,0,0.5);
+  color: white;
+  cursor: pointer;
+  padding:7px 10px;
+  border-radius: 50px;
+}
+
+#topBtn:hover {
+  @include transition-main;
+  background-color: #555; /* Add a dark-grey background on hover */
+}

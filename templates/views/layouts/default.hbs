@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		{{#if data.project}}
+		    {{#if data.project.meta.title}}
+		        <title>{{data.project.meta.title}}</title>
+		        <meta property="og:title" content="{{data.project.meta.title}}">
+		        <meta name="twitter:title" content="{{data.project.meta.title}}">
+		    {{else}}
+		        <title>{{data.project.title}}</title>
+		        <meta property="og:title" content="{{data.project.title}}">
+		        <meta name="twitter:title" content="{{data.project.title}}">
+		    {{/if}}
+		    {{#if data.project.meta.description}}
+		        <meta name="description" content="{{data.project.meta.description}}">
+		        <meta property="og:description" content="{{data.project.meta.description}}">
+		        <meta name="twitter:description" content="{{data.project.meta.description}}">
+		    {{else}}
+		        <meta name="description" content="{{data.project.content.brief}}">
+		        <meta property="og:description" content="{{data.project.content.brief}}">
+		        <meta name="twitter:description" content="{{data.project.content.brief}}">
+		    {{/if}}
+		    <meta property="og:type" content="website">
+		    <meta name="twitter:card" content="summary_large_image">
+		    <meta property="og:image" content="{{data.project.image.url}}">
+		    <meta name="twitter:image:src" content="{{data.project.image.url}}">
+		    <meta property="og:url" content="{{data.project.fullProjectUrl}}">
+		    <meta name="twitter:url" content="{{data.project.fullProjectUrl}}">
+		    <meta property="article:published_time" content="{{data.project.publishedDate}}">
+		    {{# each data.project.categories}}
+		      <meta property="article:tag" content="{{name}}">
+		    {{/each}}
+		    <meta name="keywords" content="sidechain, studio, Melbourne, design, web-design, digital, {{# each data.project.categories}}{{name}}, {{/each}}">    
+		{{else}}
+		    <title>sidechain | studio</title>
+		    <meta name="description" content="Sidechain is a digitally-focussed design, content and brand strategy studio based in Oceania.">          
+		    <meta property="og:image" content="{{baseUrl}}/images/logo.jpg">
+		    <meta name="twitter:image:src" content="{{baseUrl}}/images/logo.jpg">
+		    <meta name="keywords" content="sidechain, melbourne, design, web-design, digital, touchdesigner">
+		{{/if}}    
+
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">		
+
+		<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+		<link href="/styles/site.css" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="/styles/normalize.css" />
+
+		{{!-- This file provides the default styling for the KeystoneJS Content Editor
+			- only renders when user is logged in and admin--}}
+		{{{isAdminEditorCSS user}}}
+
+		{{!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries
+		//- Safely remove this block if you are not targeting IE8 --}}
+		<!--[if lt IE 9]>
+			<script src="//cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.js"></script>
+			<script src="//cdn.jsdelivr.net/respond/1.4.2/respond.min.js"></script>
+		<![endif]-->
+
+		<script>
+		  (function(d) {
+		    var config = {
+		      kitId: 'jdz3tzw',
+		      scriptTimeout: 3000,
+		      async: true
+		    },
+		    h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+		  })(document);
+		</script>
+	</head>
+	<body>
+		<div id="se-pre-con" class="loading-screen">
+			<div class="loader">
+				<div id="preloader" aria-busy="true" aria-label="Loading, please wait." role="progressbar">
+					<img class="icon" src="/images/sc-logo.svg">
+				</div>
+			</div>
+			<div class="loader-bg"></div>
+		</div>
+		<div id="header">
+			<div class="nav-header">
+				<div class="nav-container">
+					<nav class="navbar navbar-default">
+					  	<div class="container-fluid">
+						    <div class="navbar-header">
+						      	<button type="button" id="menuButton" class="navbar-toggle collapsed" data-target="#mobile-menu" aria-expanded="false">
+							        <span class="sr-only">Toggle navigation</span>
+							        <span class="icon-bar"></span>
+							        <span class="icon-bar"></span>
+							        <span class="icon-bar"></span>
+						      	</button>
+						      	<a class="navbar-brand navmenu-brand nav-item" href="/">
+									<svg class="sidechain-logo" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 500 350" width="30px" height="20px">
+										<path fill="#000" d="M435.5,41L480,8.8C472.5,6.6,464.6,6,456.5,6H91.8C45.8,6,8.5,43.3,8.5,89.3V229c0,36.5,24,67.3,56.7,78.7
+										l-44.4,32.4c0.4,0.1,1,0.1,1.4,0.2c7.5,2.2,15.4,3.6,23.5,3.6h363.6c46,0,83.4-37.3,83.4-83.4V120.8C492.7,83.8,468.8,52.1,435.5,41
+										z M410.9,245.4c0,9.3-7.5,16.8-16.8,16.8H131.5l43.1-31.4h-66.7c-9.7,0-17.7-8-17.7-17.7V104.4c0-10,8.2-18.2,18.2-18.2h260.7
+										l-43.3,31.4h1.7h66.7c9.2,0,16.7,7.5,16.7,16.7V245.4z"/>
+									</svg>
+							      	<h3>sidechain</h3>
+						      	</a>
+						    </div>
+						    <div class="collapse navbar-collapse" id="desktop-menu">
+						      	<ul class="nav navbar-nav nav-effect">
+						        	{{# each navLinks}}
+										<li class="nav-item {{#ifeq ../section key}}active{{else}}{{/ifeq}}" >
+											<a href="{{ href }}"><h5>{{ label }}</h5></a>
+										</li>
+									{{/each}}
+										<li class="menuItem">
+											<button type="button" id="contactButton" class="contact navbar-toggle collapsed" data-target="#contactFormSite" data-toggle="collapse" aria-expanded="false"><h5>Contact</h5></button>
+										</li>
+										<!--{{#if user}}
+											<li class="sign-out"><a href="/keystone/signout" class="menuItem"><i class="fa fa-user-circle" aria-hidden="true"></i><h5>Sign Out</h5></a></li>
+										{{else}}
+											<li class="sign-in"><a href="/keystone/signin" class="menuItem"><i class="fa fa-user-circle" aria-hidden="true"></i><h5>Login</h5></a></li>
+										{{/if}}-->
+						      	</ul>
+						    </div>
+						    <!-- Mobile Menu -->
+						    <div class="collapse navbar-collapse" id="mobile-menu">
+							  	<a class="navbar-brand navmenu-brand nav-item" href="/">
+									<svg class="sidechain-logo" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 500 350" width="30px" height="20px">
+										<path fill="#000" d="M435.5,41L480,8.8C472.5,6.6,464.6,6,456.5,6H91.8C45.8,6,8.5,43.3,8.5,89.3V229c0,36.5,24,67.3,56.7,78.7
+										l-44.4,32.4c0.4,0.1,1,0.1,1.4,0.2c7.5,2.2,15.4,3.6,23.5,3.6h363.6c46,0,83.4-37.3,83.4-83.4V120.8C492.7,83.8,468.8,52.1,435.5,41
+										z M410.9,245.4c0,9.3-7.5,16.8-16.8,16.8H131.5l43.1-31.4h-66.7c-9.7,0-17.7-8-17.7-17.7V104.4c0-10,8.2-18.2,18.2-18.2h260.7
+										l-43.3,31.4h1.7h66.7c9.2,0,16.7,7.5,16.7,16.7V245.4z"/>
+									</svg>
+							      	<h3>sidechain</h3>
+						      	</a>
+						      	<ul class="nav navbar-nav">
+						        	{{# each navLinks}}
+										<li class="menuItem nav-item {{#ifeq ../section key}}active{{else}}{{/ifeq}}"">
+											<a href="{{ href }}"><h5>{{ label }}</h5></a>
+										</li>
+									{{/each}}
+										<li class="menuItem">
+											<button type="button" id="cToggleM" class="contact navbar-toggle collapsed" data-target="#contactFormSite" aria-expanded="false">Contact</button>
+										</li>
+
+										<!--{{#if user}}
+											<li id="menuItem" class="sign-out menuItem"><a href="/keystone/signout"><i class="fa fa-user-circle" aria-hidden="true"></i><h5></h5></a></li>
+										{{else}}
+											<li id="menuItem" class="sign-in menuItem"><a href="/keystone/signin"><i class="fa fa-user-circle" aria-hidden="true"></i><h5></h5></a></li>
+										{{/if}}
+										<div class="btn-wrap">
+										<button class="menu-close" type="button" id="closeMenu">close</button></div>-->
+						      	</ul>
+						    </div><!-- /.navbar-collapse -->
+					  	</div><!-- /.container-fluid -->
+
+					  	<div class="collapse navbar-collapse" id="contactFormSite">	
+							<div class="col-sm-12 contact-form">
+								<div class="container">
+									{{#if enquirySubmitted}}
+										<h3>Thanks for getting in touch. We'll get back to you as soon as we can.</h3>
+										<a href="/work" class="nav-item"><button class="enter-site-btn" type="submit" id="" data-title="Button">back</button></a>
+									{{else}}
+										<div class="row contact-row">
+											<div class="mobile-back-btn"><a id="closeButton">&larr;</a></div>
+											<div class="col-xs-12 col-sm-6">
+												<h1>Say Hello</h1>
+												<ul class="contact-list">
+													<li>studio@sidechain.studio</li>
+													<li>Melbourne +61-410-932-327</li>
+													<li>Auckland +64-21-728-542</li>
+												</ul>
+											</div>
+											<div class="col-xs-12 col-sm-6">
+												<p>Collaboration begins with a conversation. Whether you’re interested in discussing a new project or simply wish to find out more about our services and what we can do for you, we are here to help. Send us a message below or call us at 0410 932 327. </p>
+												<form method="post">
+													<input type="hidden" name="action" value="contact">
+													<div class="form-group {{#if validationErrors.name}}has-error{{/if}}">
+														<label>Name</label>
+														<input type="text" name="name.full"  class="form-control" value="{{formData.[name.full]}}">
+													</div>
+													<div class="form-group {{#if validationErrors.email}}has-error{{/if}}">
+														<label>Email</label>
+														<input type="email" name="email" class="form-control" value="{{formData.email}}">
+													</div>
+													<div class="form-group {{#if validationErrors.message}}has-error{{/if}} ">
+														<label>Message</label>
+														<textarea name="message" placeholder="" rows="3" class="form-control">{{formData.message}}</textarea>
+													</div>
+													<div class="form-actions">
+														<!--<button type="submit" class="btn btn-primary">Send</button>-->
+														<button class="enter-site-btn" type="submit" id="" data-title="Button">send</button>
+													</div>
+												</form>
+											</div>
+										</div>
+									{{/if}}
+								</div>
+							</div>
+				    	</div><!-- /.navbar-collapse -->
+					</nav>
+					<div id="coverLayer"></div>
+					<div class="sidebar-wrap">
+						<div class="sidebar-menu follow">
+							<h5 class="sidemenu-title">share</h5>
+							<ul class="social-list">								
+							    <a href="https://www.facebook.com/sharer/sharer.php?u=https://sidechain.studio/" target="_blank">
+							    	<li class="icon">
+							    		<i class="fa fa-facebook" aria-hidden="true"></i>
+							      </li>
+							    </a>	
+
+							    <a href="https://twitter.com/share?url=https://sidechain.studio&amp;text=Sidechain%20are%20my%20friends&amp;hashtags=sidechain" target="_blank">
+									<li class="icon">
+										<i class="fa fa-twitter" aria-hidden="true"></i>
+									</li>
+								</a>
+								<a href="https://plus.google.com/share?url=https://sidechain.studio" target="_blank">
+									<li class="icon">
+										<i class="fa fa-google-plus" aria-hidden="true"></i>
+									</li>
+								</a>	
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="body">
+			<button onclick="topFunction()" id="topBtn" title="Go to top"><span class="glyphicon glyphicon-menu-up" aria-hidden="true"></span></button>
+			<!--
+				Flash messages allow you to display once-off status messages to users, e.g. form
+				validation errors, success messages, etc
+			-->
+			{{#if messages}}
+			<div id="flash-messages" class="container">
+				{{#if messages.info}}
+				<div class="alert alert-info">
+						{{{flashMessages messages.info}}}
+				</div>
+				{{/if}}
+				{{#if messages.success}}
+				<div class="alert alert-success">
+						{{{flashMessages messages.success}}}
+				</div>
+				{{/if}}
+				{{#if messages.warning}}
+				<div class="alert alert-warning">
+						{{{flashMessages messages.warning}}}
+				</div>
+				{{/if}}
+				{{#if messages.error}}
+				<div class="alert alert-danger">
+						{{{flashMessages messages.error}}}
+				</div>
+				{{/if}}
+			</div>
+			{{/if}}
+			<!-- The content block should contain the body of your template's content-->
+			{{{body}}}
+		</div>
+		<div class="footer-wrapper">
+			<footer class="footer invisible">
+				<div id="footer" class="container">
+					<div class="row">
+						<div class="col-xs-12 col-sm-3">
+							<h1>sidechain</h1>
+						</div>
+						<div class="col-xs-12 col-sm-3 foot-col">
+							<h5>SAY HI</h5>
+							<ul class="contact-list">
+								<li><h5>studio@sidechain.studio</h5></li>
+								<li><h5>Melbourne +61-410-932-327<br/>Auckland +64-21-728-542</h5></li>
+							</ul>
+						</div>
+						<div class="col-xs-12 col-sm-3 foot-col">
+							<h5>POP IN</h5>
+							<ul class="contact-list">
+								<li><h5>27 Warne St, Brunswick <br/> Melbourne, Australia 3056</h5></li>
+								<!-- <li><h5>GE1-238 Karangahape Road <br/> Auckland, New Zealand 1010</h5></li> -->
+							</ul>
+						</div>
+						<div class="col-xs-12 col-sm-3 foot-col">
+							<h5>CONNECT</h5>
+							<ul class="social-list">
+								<a href="https://codepen.io/Sidechain_Studio/" target="_blank"><li><i class="fa fa-codepen" aria-hidden="true"></i> <h5>Codepen</h5></li></a>
+								<a href="https://www.facebook.com/sidechain.melbourne/" target="_blank"><li><i class="fa fa-facebook" aria-hidden="true"></i> <h5>Facebook</h5></li></a>
+								<a href="https://vimeo.com/sidechainstudio" target="_blank"><li><i class="fa fa-vimeo" aria-hidden="true"></i> <h5>Vimeo</h5></li></a>
+								<a href="https://www.instagram.com/sidechain_studio" target="_blank"><li><i class="fa fa-instagram" aria-hidden="true"></i> <h5>Instagram</h5></li></a>
+								<!--<li><i class="fa fa-linkedin" aria-hidden="true"></i> <h5>LinkedIn</h5></li>-->
+								<!--<li><i class="fa fa-gavel" aria-hidden="true"></i> <h5>Legal</h5></li>-->
+							</ul>											
+						</div>
+					</div>
+				</div>
+			</footer>
+		</div>
+		<link rel="stylesheet" href="/fonts/font-awesome/css/font-awesome.min.css">
+		{{!--
+			//- jQuery 1.11.3 is included by default, and required by both Bootstrap
+			//- and the KeystoneJS Content Editor. If you are not targeting IE8,
+			//- you can upgrade to 2.1.4 (also bundled) for better performance.
+		--}}
+		<script src="/js/jquery/jquery-1.11.3.min.js"></script>
+		{{!--
+			//- Customise which Bootstrap javascript files are served by including
+			//- them specifically here, instead of bootstrap-3.3.5.min.js
+		--}}
+		<script src="/js/bootstrap/bootstrap-3.3.5.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/js/jasny-bootstrap.min.js"></script>
+		<script src="/js/modernizr.custom.js"></script>
+		<script src="/js/utils/rAF.js"></script>
+		<script src="/js/utils/easing.js"></script>
+		<script src="/js/particleBoard.js"></script>
+		<script src="/js/customScripts.js"></script>
+		<script src="/js/homeScripts.js"></script>
+		<script src="/js/masonry.pkgd.min.js"></script>
+		<script src="/js/imagesLoaded.js"></script>
+		<script src="/js/classie.js"></script>
+		<script src="/js/AnimOnScroll.js"></script>
+		<script src="/js/journalScript.js"></script>
+		<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery.lazy/1.7.4/jquery.lazy.min.js"></script>
+
+		<script>
+			new AnimOnScroll( document.getElementById( 'grid' ), {
+				minDuration : 0.4,
+				maxDuration : 0.7,
+				viewportFactor : 0.2
+			});
+		</script>
+		{{{isAdminEditorJS user}}}
+		<script>
+		    $(function() {
+		        $('.lazy').lazy();
+		    });
+		</script>
+	</body>
+</html>

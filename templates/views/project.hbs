@@ -1,0 +1,132 @@
+<div class="outer-container post-cont">
+	<div class="row">
+		<div class="col-xs-12 proj-cont">
+			<div class="container back-container">
+				<h5 class="back-btn"><a href="/work"> BACK TO PORTFOLIO </a></h5>
+			</div>
+			<article>
+				<div class="post">
+					<header class="container post-words">
+						<div class="col-xs-12 col-sm-3 title">
+							<h5 class="p-sub-head">{{data.project.title}}</h5>
+							<div class="categories">
+								<h5>{{{categoryList data.project.categories}}}</h5>
+							</div>
+							<div class="post-categories">
+								<h5>Share this project</h5>
+								<ul class="social-list">	
+									<a href="http://www.facebook.com/sharer.php?u=https://sidechain.studio" target="_blank">			
+							    	<li class="icon">
+							    		<i class="fa fa-facebook" aria-hidden="true"></i>	
+							       </li>		
+							     </a>						
+									<a href="https://twitter.com/share?url=https://sidechain.studio&amp;text=Sidechain%20are%20my%20friends&amp;hashtags=sidechain" target="_blank">
+										<li class="icon">
+											<i class="fa fa-twitter" aria-hidden="true"></i>
+										</li>	
+									</a>							
+									<a href="https://plus.google.com/share?url=https://sidechain.studio" target="_blank">
+										<li class="icon">
+											<i class="fa fa-google-plus" aria-hidden="true"></i>
+										</li>
+									</a>								
+								</ul>
+							</div>
+						</div>
+						<div class="col-xs-12 col-sm-offset-1 col-sm-8 brief">
+							{{{data.project.content.brief}}}
+						</div>
+<!-- 						<div class="col-xs-12 col-sm-2 post-categories">
+							<div class="categories">
+								<h5>{{{categoryList data.project.categories}}}</h5>
+							</div>
+						</div> -->
+					</header>
+					<!-- {{{data.project.videoUrl}}} -->
+					<!-- {{#if data.project.images}}
+						<div class="container">
+							<img class="lazy img project-img" src="{{{cloudinaryUrl image crop='fit' }}}" alt="Photo" data-src="{{{cloudinaryUrl image crop='fit' }}}">
+						</div>
+					{{/if}} -->
+					{{{data.project.content.extended}}}
+					<div class="container project-footer">
+						<div class="col-xs-12 col-sm-3 post-categories">
+							<div class="categories col-xs-12">
+								<h5>{{{categoryList data.project.categories}}}</h5>
+							</div>
+							<div class="col-xs-12 proj-footer-share">
+								<h5>Share this project</h5>
+								<ul class="social-list">								
+							    	<li class="icon">
+							    		<a href="http://www.facebook.com/sharer.php?u=https://sidechain.studio" target="_blank">
+							    			<i class="fa fa-facebook" aria-hidden="true"></i>
+							    		</a>
+							        </li>								
+									<li class="icon">
+										<a href="https://twitter.com/share?url=https://sidechain.studio&amp;text=Sidechain%20are%20my%20friends&amp;hashtags=sidechain" target="_blank">
+											<i class="fa fa-twitter" aria-hidden="true"></i>
+										</a>
+									</li>								
+									<li class="icon">
+										<a href="https://plus.google.com/share?url=https://sidechain.studio" target="_blank">
+											<i class="fa fa-google-plus" aria-hidden="true"></i>
+										</a>
+									</li>	
+								</ul>
+							</div>
+						</div>
+						<div class="col-xs-12 col-sm-9 text-right project-link-container">
+							<a href="{{data.project.Url}}" target="_blank">
+								<button class="link-btn" type="submit">{{data.project.name}}</button>
+							</a>
+						</div>
+					</div>
+				</div>
+			</article>
+		</div>
+		<div class="col-xs-12 next-btn-wrap">
+			<div class="container next-cont">
+				{{# with selected.previous}}
+					<div class="col-xs-6 left">
+						<div class="content">
+							<a href="{{projectUrl slug}}" class="nav-item">
+								<h2 class="title">PREVIOUS
+									<svg 
+									 xmlns="http://www.w3.org/2000/svg"
+									 xmlns:xlink="http://www.w3.org/1999/xlink"
+									 width="133px" height="13px">
+									<path fill-rule="evenodd"  fill="rgb(204, 204, 204)"
+									 d="M133.000,8.000 L11.009,8.000 L11.009,13.003 L-0.005,6.504 L11.009,0.005 L11.009,5.000 L133.000,5.000 L133.000,8.000 Z"/>
+									</svg>
+								</h2>
+							</a>
+						</div>
+					</div>				
+				{{/with}}
+				<!-- <div class="hidden-mobile">
+					<a href="{{data.project.Url}}" target="_blank"><button class="next-btn" type="submit">{{data.project.name}}</button></a>
+				</div> -->
+				{{# with selected.next}}
+					<div class="col-xs-6 right">
+						<div class="content">
+							<a href="{{projectUrl slug}}" class="nav-item">
+								<h2 class="title">NEXT
+									<svg 
+									 xmlns="http://www.w3.org/2000/svg"
+									 xmlns:xlink="http://www.w3.org/1999/xlink"
+									 width="133px" height="13px">
+									<path fill-rule="evenodd"  fill="rgb(204, 204, 204)"
+									 d="M133.005,6.504 L121.991,13.003 L121.991,8.000 L-0.000,8.000 L-0.000,5.000 L121.991,5.000 L121.991,0.005 L133.005,6.504 Z"/>
+									</svg>
+								</h2>
+							</a>
+						</div>
+					</div>				
+				{{/with}}
+			</div>
+		</div>
+		<!--<div class="container page-cont">
+			{{>pagination}}
+		</div>-->
+	</div>
+</div>

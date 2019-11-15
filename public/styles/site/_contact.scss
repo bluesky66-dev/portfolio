@@ -1,0 +1,195 @@
+  // MIXINS
+
+// Center Mixin
+@mixin centererX {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+// Transition Mixin
+@mixin transition-main{
+    transition: ease all .3s;
+    -webkit-transition: ease all .3s;
+    -o-transition: ease all .3s;
+    -moz-transition: ease all .3s;
+}
+
+@mixin transition-sec{
+    transition: ease all .6s;
+    -webkit-transition: ease all .6s;
+    -o-transition: ease all .6s;
+    -moz-transition: ease all .6s;
+}
+
+// clear-fix mixin
+@mixin cf {
+  &::before,
+  &::after {
+    content: '';
+    display: table;
+  }
+  &::after {
+    clear: both;
+  }
+}
+
+// VARIABLES
+
+$font-head:"futura-pt",sans-serif;
+$font-subhead:"futura-pt",sans-serif;
+$font-body:"futura-pt",sans-serif;
+$primary-color:;
+$secondary-color:;
+$white: #fff;
+$black: #000;
+
+
+// CONTACT IN MAIN NAV 
+
+.contact-cont {
+  .page-nav-cont .page-title{
+    display:block;
+  }
+}
+
+.contact-form .contact-list {
+  list-style:none;
+  padding: 1em 0;
+}
+
+
+.contact.navbar-toggle {
+  color:$black;
+  display:block;
+  height:auto; 
+  display: inline-block!important;
+  -webkit-transform: translateY(0);
+  transform: translateY(0);
+  margin: 0!important;
+  padding: 15px 15px;
+  font-size: 19px;
+  line-height: 26px;
+  font-weight: 600;
+}
+
+body nav, .work nav, .vic nav, .serv nav, .k nav, .ut nav, .rna nav, #landingPage nav {
+  .navbar-collapse.collapse.open {
+    display:block !important;
+    position:fixed;
+    top: 0;
+    left: 0;
+    padding: 0;
+    border:none;
+  }
+  .contact-form {
+    background-color:#fff;
+    position: fixed;
+    top: 0; left: 0;
+    z-index:10001;
+    padding: 120px 30px 60px;
+    label{
+      font-family:$font-body; 
+      font-style: normal;
+      font-weight:300;
+      font-size: 16px;
+    }
+    h3{
+      text-align:center;
+    }
+    .form-actions{
+      padding-top:2em; 
+    }
+    .form-group .form-control{
+      @include transition-sec
+      border:none;
+      border-bottom:1px solid #eee;
+      -webkit-box-shadow:none;
+      -moz-box-shadow:none;
+      -o-box-shadow:none;
+      box-shadow:none;
+      border-radius:0;
+      &:focus{
+        @include transition-sec
+        -webkit-box-shadow:none;
+        -moz-box-shadow:none;
+        -o-box-shadow:none;
+        box-shadow:none;
+        border-color:#2EE59D;
+      }
+    }
+    .close-contact {
+      position: absolute;
+      right: 60px;
+      top: 60px;
+    }
+    .contact-row p {
+      font-size:16px;
+      padding-bottom:2em;
+    }
+    .contact-row h1 {
+      margin:0;
+      font-size:30px;
+    }
+    .contact-row .enter-site-btn {
+      float: right;
+    }
+    .back-site-btn {
+      position:absolute;
+      left:50%;
+      transform:translateX(-50%);
+      margin-top:100px;
+    }
+  }
+}
+.contact-header{
+  text-align: center;
+}
+
+
+// CONTACT POPUP
+
+
+
+@media (min-width: 768px) {
+  .navbar-collapse.collapse {
+    display: none!important;
+  }
+  .navbar-toggle {
+    height: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .work nav, .abou nav, .k nav, .ut nav, #landingPage nav {
+    .contact-form .contact-row p {
+      font-size:12px;
+      padding-bottom:2em;
+    }
+    .contact-row h1 {
+      padding-bottom:50px;
+    }
+  }
+  button#cToggleM {
+    width: 100%;
+    font-size: 2em;
+    height: 73px;
+    font-weight: 500;
+  }
+}
+@media (max-width: 450px) {
+  nav .contact-form {
+    height: 100vh;
+    overflow: auto; 
+    line-height:20px;
+    padding:90px 30px 60px 30px !important
+  }
+  .contact-row {
+    h1 {
+      padding-bottom:20px !important;
+    }
+  }
+  nav .closeBtn {
+    display: none;
+  }
+}

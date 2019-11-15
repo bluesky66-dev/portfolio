@@ -1,0 +1,6 @@
+<svg id="cross" data-name="Cross" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+	<style type="text/css">
+	.cross-fill{fill:#FFFFFF;}
+	</style>
+	<polygon class="cross-fill" points="39 10.44 37.56 9 24 22.56 10.44 9 9 10.44 22.56 24 9 37.56 10.44 39 24 25.44 37.56 39 39 37.56 25.44 24 39 10.44"/>
+</svg>

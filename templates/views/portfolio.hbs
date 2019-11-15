@@ -1,0 +1,49 @@
+<div class="article-wrap">
+	<a href="/work/project/disappear-here">
+		<div class="feat-title">
+			<h1>Disappear Here</h1>
+		</div>
+	</a>
+	<div class="full-width-section">
+		<div class="iframe-wrapper">
+			<video id="myVideo" src="https://player.vimeo.com/external/218872293.hd.mp4?s=6284d1e33a5baec10db84e476ff2de085cf0b6fa&profile_id=119" autoplay loop frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></video>
+		</div>
+	</div>
+	<div class="dh-article">
+		<div class="article-content">
+			<div class="content-inner">
+				<a href="/work/project/disappear-here">
+				</a>
+			</div>	
+		</div>	
+	</div>
+</div>
+
+<div class="outer-container work-cont">
+	<div class="container page-nav-cont">
+		<h5 class="page-title">Work</span></h5>
+	</div>
+
+	<div class="container">
+		<div class="row">
+		{{# each data.projects.results}}
+			<div class="col-xs-12 col-sm-6 project-card card" data-ks-editable="{{#if ../user}}{{adminEditableUrl ../../user _id}}{{/if}}">
+				{{#if image}}
+					<a href="{{projectUrl slug}}" class="nav-item">
+						<!-- <img src="{{{cloudinaryUrl image crop='fit' }}}" class="img project-img"> -->
+						<img class="lazy img project-img" src="images/blank.png" alt="Photo" data-src="{{{cloudinaryUrl image crop='fit' }}}">
+					</a>
+				{{/if}}
+				<div class="data-container">
+					<div class="content">
+						<h2 class="title"><a href="{{projectUrl slug}}" class="nav-item">{{{title}}}</a></h2>
+						<p class="author">{{{categoryList categories prefix=""}}}
+								<!--{{#if author.name.first}}by {{author.name.first}}{{/if}}-->
+						</p>
+					</div>
+				</div>				
+			</div>
+		{{/each}}
+		</div>	
+	</div>
+</div>
